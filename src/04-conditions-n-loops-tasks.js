@@ -60,8 +60,11 @@ function getFactorial(/* n */) {
  *   5,10  =>  45 ( = 5+6+7+8+9+10 )
  *   -1,1  =>  0  ( = -1 + 0 + 1 )
  */
-function getSumBetweenNumbers(/* n1, n2 */) {
-  throw new Error('Not implemented');
+function getSumBetweenNumbers(n1, n2) {
+  const n = (n2 - n1) + 1;
+  // eslint-disable-next-line no-shadow
+  const arr2 = [...Array(n).keys()].map((n) => n + n1);
+  return arr2.reduce((acc, el) => acc + el, 0);
 }
 
 
@@ -191,8 +194,18 @@ function findFirstSingleChar(/* str */) {
  *   5, 3, true, true   => '[3, 5]'
  *
  */
-function getIntervalString(/* a, b, isStartIncluded, isEndIncluded */) {
-  throw new Error('Not implemented');
+function getIntervalString(a, b, isStartIncluded, isEndIncluded) {
+  let str2 = '';
+  if (a > b) {
+    str2 = `${b}, ${a}`;
+  } else {
+    str2 = `${a}, ${b}`;
+  }
+  // eslint-disable-next-line no-unused-expressions
+  isStartIncluded === true ? str2 = `[${str2}` : str2 = `(${str2}`;
+  // eslint-disable-next-line no-unused-expressions
+  isEndIncluded === true ? str2 += ']' : str2 += ')';
+  return str2;
 }
 
 
