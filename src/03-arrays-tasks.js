@@ -264,8 +264,11 @@ function getMovingSum(/* arr */) {
  * [ 'a', 'b', 'c' , null ]  => [ "b", null ]
  * [ "a" ] => []
  */
-function getSecondItems(/* arr */) {
-  throw new Error('Not implemented');
+function getSecondItems(arr) {
+  const arr2 = [];
+  const arr3 = [];
+  arr.map((el, index) => (index % 2 !== 0 ? arr3.push(el) : arr2.push(el)));
+  return arr3;
 }
 
 
@@ -374,8 +377,16 @@ function getItemsSum(arr) {
  *  [ -1, 'false', null, 0 ] => 2
  *  [ null, undefined, NaN, false, 0, '' ]  => 6
  */
-function getFalsyValuesCount(/* arr */) {
-  throw new Error('Not implemented');
+function getFalsyValuesCount(arr) {
+  let count = 0;
+  // eslint-disable-next-line array-callback-return,no-undef
+  arr.filter((k) => {
+    if (!k) {
+      // eslint-disable-next-line no-plusplus
+      count++;
+    }
+  });
+  return count;
 }
 
 /**
@@ -495,8 +506,9 @@ function getIntervalArray(start, end) {
  *   [ 'a', 'a', 'a', 'a' ]  => [ 'a' ]
  *   [ 1, 1, 2, 2, 3, 3, 4, 4] => [ 1, 2, 3, 4]
  */
-function distinct(/* arr */) {
-  throw new Error('Not implemented');
+function distinct(arr) {
+  const unic = new Set(arr);
+  return Array.from(unic);
 }
 
 /**
